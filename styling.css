@@ -1,0 +1,16 @@
+table,td{
+	border: 1px solid black;
+}
+th{
+	font-weight: bold;
+    text-align: center;
+}
+#subheadings{
+	font-style: italic;
+}
+.pass{
+	color: 	#00FF00;
+}
+.fail{
+	color: #ff0000;
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "name":"rajiv",
+    "rollNumber": "KV2017-5A2",
+    "marks":[{
+      "english": 25,
+      "maths" : 40,
+      "science": 45
+    }
+    ]
+  },
+  {
+    "name":"abhishek",
+    "rollNumber": "KV2017-5A3",
+    "marks":[{
+      "english": 25,
+      "maths" : 42,
+      "science": 18
+    }
+    ]
+  },
+  {
+    "name":"zoya",
+    "rollNumber": "KV2017-5A4",
+    "marks":[{
+      "english": 25,
+      "maths" : 32,
+      "science": 25
+    }
+    ]
+  }
+]

@@ -1,0 +1,68 @@
+	<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="styling.css">
+	<title>School Form</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+<table>
+	<tr>
+		<td><input id = "fname" placeholder = "First Name" type = "text" name = "fname"></td>
+			<td><input type="text" name="lname" id="lname" placeholder="Last Name"></td>
+	</tr>
+	<tr>
+		<td><input type="text" name="class" id="class" placeholder="Class"></td>
+		<td><input type="text" name="passing" id="passing" placeholder="Year of Passing"></td>
+		<td><input type="text" name="percent" id="percent" placeholder="Percentage"></td>
+	</tr>
+	<tr>
+		<td><input type="button" name="submit" value="submit" id="submit"></td>
+	</tr>
+</table>
+</body>
+</html>
+<script type="text/javascript">
+	$('#submit').on('click',function(){
+		var fname = $('#fname').val();
+		var lname = $('#lname').val();
+		var npattern = /^[a-zA-Z]*$/;
+		var standard = $('#class').val();
+		var passing = $('#passing').val();
+		var percent = $('#percent').val();
+		var pattern = /^\d+$/;
+		if (fname !="" && npattern.test(fname) && fname.length < 20) {
+			if (lname != "" && npattern.test(lname) && lname.length < 20) {
+				if (standard!="") {
+					if (pattern.test(passing) && passing <= 2017) {
+						if (pattern.test(percent)) {
+							$.ajax({
+								url: "./submitform.php",
+								type: "POST",
+								data: {fname: fname, lname: lname, standard: standard, passing: passing, percent: percent},
+								success: function(data){
+									alert("success");
+								}
+							});
+						}else{
+							$('#percent').attr("placeholder","Enter Number Only").css('color','red').focus();
+							return false;
+						}
+					}else{
+						$('#passing').attr("placeholder","Enter Passing Year upto 2017 Only").css('color','red').focus();
+						return false;
+					}
+				}else{
+					$('#class').attr("placeholder","Enter Class").css('color','red').focus();
+					return false;
+				}
+			}else{
+				$('#lname').attr("placeholder","Enter Last Name").css('color','red').focus();
+				return false;
+			}
+		}else{
+			$('#fname').attr("placeholder","Enter First Name").css('color','red').focus();
+			return false;
+		}
+	});
+</script>
